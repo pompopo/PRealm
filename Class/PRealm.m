@@ -14,6 +14,12 @@ RCT_EXPORT_METHOD(registerScheme:(NSString *)name scheme:(NSDictionary *)dict) {
     [PRealmObject createClassNamed:name scheme:dict];
 }
 
+RCT_EXPORT_METHOD(setSchemaVersion:(NSUInteger)version) {
+    [RLMRealm setSchemaVersion:version
+                forRealmAtPath:[RLMRealm defaultRealmPath]
+            withMigrationBlock:nil];
+}
+
 RCT_EXPORT_METHOD(add:(NSString *)name obj:(NSDictionary *)dict) {
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
