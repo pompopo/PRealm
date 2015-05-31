@@ -6,6 +6,7 @@
 #import <Realm/Realm.h>
 
 @interface PRealmObject : RLMObject
+
 - (NSDictionary *)dictionary;
 
 + (void)createClassNamed:(NSString *)name scheme:(NSDictionary *)dict;

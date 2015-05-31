@@ -6,6 +6,7 @@
 #import <objc/runtime.h>
 
 @implementation PRealmObject
+
 - (NSDictionary *)dictionary {
   NSMutableDictionary *tmp = @{}.mutableCopy;
   for (NSString *key in [self allPropertyNames]) {
@@ -30,7 +31,7 @@
 
     class_addIvar(klass, iVarName, sizeof(id), rint(log2(sizeof(id))), @encode(id));
 
-    objc_property_attribute_t type = attributeWithType(dict[key]);
+    objc_property_attribute_t type = attributeWithType(dict[key], klass, key);
     objc_property_attribute_t attrs[] = {type};
     class_addProperty(klass, [key UTF8String], attrs, 1);
 
@@ -76,12 +77,21 @@
       [obj setValue:dict[key] forKey:key];
     }
   }
+
   return obj;
 }
 
-objc_property_attribute_t attributeWithType(NSString *type) {
+objc_property_attribute_t attributeWithType(NSString *type, Class klass, NSString *key) {
 
   NSArray *components = [type componentsSeparatedByString:@" "];
+    
+    if (components.count > 1 && [components[1] isEqualToString:@"primary"]) {
+        Class metaClass = object_getClass(klass);
+        class_addMethod(metaClass, @selector(primaryKey), imp_implementationWithBlock(^(id this) {
+            return key;
+        }), "@@:");
+    }
+    
   NSString *name = components[0];
   if ([name isEqualToString:@"string"]) {
     return (objc_property_attribute_t){ "T", "@\"NSString\""};

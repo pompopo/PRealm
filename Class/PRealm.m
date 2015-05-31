@@ -21,6 +21,28 @@ RCT_EXPORT_METHOD(add:(NSString *)name obj:(NSDictionary *)dict) {
   }];
 }
 
+
+RCT_EXPORT_METHOD(update:(NSString *)name obj:(NSDictionary *)dict) {
+  RLMRealm *realm = [RLMRealm defaultRealm];
+    Class klass = NSClassFromString(name);
+    if ([klass respondsToSelector:@selector(primaryKey)]) {
+      NSString *primaryKey = [klass performSelector:@selector(primaryKey)];
+      NSString *query = [NSString stringWithFormat:@"%@ == %@", primaryKey, dict[primaryKey]];
+      RLMResults *results = [klass performSelector:@selector(objectsWhere:) withObject:query];
+      RLMObject *obj = results[0];
+      [realm transactionWithBlock:^{
+          NSMutableDictionary *mutableDict = dict.mutableCopy;
+          [mutableDict removeObjectForKey:primaryKey];
+          [obj setValuesForKeysWithDictionary:mutableDict];
+
+          [realm addOrUpdateObject:obj];
+      }];
+
+  } else {
+      [self add:name obj:dict];
+  }
+}
+                  
 RCT_EXPORT_METHOD(find:(NSString *)name callback:(RCTResponseSenderBlock)block) {
   Class klass = NSClassFromString(name);
   RLMResults *results = [klass performSelector:@selector(allObjects)];
