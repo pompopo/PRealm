@@ -42,7 +42,14 @@ RCT_EXPORT_METHOD(update:(NSString *)name obj:(NSDictionary *)dict) {
       [self add:name obj:dict];
   }
 }
-                  
+
+RCT_EXPORT_METHOD(deleteAllObjects) {
+  RLMRealm *realm = [RLMRealm defaultRealm];
+  [realm transactionWithBlock:^{
+    [realm deleteAllObjects];
+  }];
+}
+
 RCT_EXPORT_METHOD(find:(NSString *)name callback:(RCTResponseSenderBlock)block) {
   Class klass = NSClassFromString(name);
   RLMResults *results = [klass performSelector:@selector(allObjects)];
