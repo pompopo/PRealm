@@ -55,7 +55,7 @@ RCT_EXPORT_METHOD(deleteAllObjects) {
     }];
 }
 
-RCT_EXPORT_METHOD(find:(NSString *)name callback:(RCTResponseSenderBlock)block) {
+RCT_EXPORT_METHOD(allObjects:(NSString *)name callback:(RCTResponseSenderBlock)block) {
     Class klass = NSClassFromString(name);
     RLMResults *results = [klass performSelector:@selector(allObjects)];
     returnResults(results, block);
