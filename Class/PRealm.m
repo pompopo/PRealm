@@ -10,7 +10,7 @@
 @implementation PRealm
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(registerScheme:(NSString *)name scheme:(NSDictionary *)dict) {
+RCT_EXPORT_METHOD(defineSchema:(NSString *)name schema:(NSDictionary *)dict) {
     [RLMObject createClassNamed:name scheme:dict];
 }
 
