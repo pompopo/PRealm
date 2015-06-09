@@ -10,8 +10,8 @@ Realm library for React Native. Currently only supports a few APIs and types.
 ```
 var PRealm = require('NativeModules').PRealm;
 
-PRealm.registerScheme("Person", {name: "string", age: "int", like: "array Item"});
-PRealm.registerScheme("Item", {name: "string"});
+PRealm.defineSchemat("Person", {name: "string", age: "int", like: "array Item"});
+PRealm.defineSchema("Item", {name: "string"});
 
 var e1 = {name: "Beer"};
 var e2 = {name: "Game"};
