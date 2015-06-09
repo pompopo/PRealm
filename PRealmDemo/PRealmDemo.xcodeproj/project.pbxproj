@@ -17,7 +17,7 @@
 		0427D9671B2706DF001D37B1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0427D9661B2706DF001D37B1 /* Realm.framework */; };
 		0427D9731B2706EC001D37B1 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0427D9721B2706EC001D37B1 /* libc++.dylib */; };
 		0427D9791B270704001D37B1 /* PRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427D9761B270704001D37B1 /* PRealm.m */; };
-		0427D97A1B270704001D37B1 /* PRealmObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427D9781B270704001D37B1 /* PRealmObject.m */; };
+		0427D97D1B27092E001D37B1 /* RLMObject+PRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427D97C1B27092E001D37B1 /* RLMObject+PRealm.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -123,8 +123,8 @@
 		0427D9721B2706EC001D37B1 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		0427D9751B270704001D37B1 /* PRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRealm.h; sourceTree = "<group>"; };
 		0427D9761B270704001D37B1 /* PRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRealm.m; sourceTree = "<group>"; };
-		0427D9771B270704001D37B1 /* PRealmObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRealmObject.h; sourceTree = "<group>"; };
-		0427D9781B270704001D37B1 /* PRealmObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRealmObject.m; sourceTree = "<group>"; };
+		0427D97B1B27092E001D37B1 /* RLMObject+PRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMObject+PRealm.h"; sourceTree = "<group>"; };
+		0427D97C1B27092E001D37B1 /* RLMObject+PRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMObject+PRealm.m"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* PRealmDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRealmDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,8 +231,8 @@
 			children = (
 				0427D9751B270704001D37B1 /* PRealm.h */,
 				0427D9761B270704001D37B1 /* PRealm.m */,
-				0427D9771B270704001D37B1 /* PRealmObject.h */,
-				0427D9781B270704001D37B1 /* PRealmObject.m */,
+				0427D97B1B27092E001D37B1 /* RLMObject+PRealm.h */,
+				0427D97C1B27092E001D37B1 /* RLMObject+PRealm.m */,
 			);
 			name = Class;
 			path = ../Class;
@@ -554,7 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				0427D97A1B270704001D37B1 /* PRealmObject.m in Sources */,
+				0427D97D1B27092E001D37B1 /* RLMObject+PRealm.m in Sources */,
 				0427D9791B270704001D37B1 /* PRealm.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
