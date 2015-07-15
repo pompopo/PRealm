@@ -21,6 +21,50 @@ PRealm.find("Person", "age > 26", (e) => {
 });
 ```
 
+# Models
+`PRealm.defineSchema()` creates subclass of `RLMObject` dynamically.
+```
+PRealm.defineSchema("MyModel", {field1: type1, field2: type2...});
+```
+currently PRealm supports types below
+
+- "string" (`NSString *`)
+- "int" (`long long`)
+- "bool" (`BOOL`)
+- "float" (`float`)
+- "array" T (`RLMArray<T>`. T must be a RLMObject)
+
+and you can use primary key
+- "string primary"
+- "int primary"
+
+# Adding, Updating, Deleting
+
+- `PRealm.add(className, object)`
+- `PRealm.update(className, object)`
+- `PRealm.deleteAllObjects()`
+
+# Queries
+- `PRealm.allObjects(className, callback)`
+- `PRealm.find(className, query, callback)`
+
+Because Objective-C codes cannot return value to JS in React Native, you must use callback function to get result.
+```
+PRealm.allObjects("MyModel", (e) => {
+  console.log(e); // e is an array of objects.
+});
+
+PRealm.find("MyModel", "age > 26", (e) => {
+  console.log(e[0]);
+});
+```
+You can use query same as `[RLMObject objectsWhere:]`.
+
+# Migrations
+PRealm can only update Schema version...
+
+`PRealm.setSchemaVersion(version)`
+
 # TODO
 - support all type (NSDate, NSData...)
 - implement all RLMRealm APIs.
