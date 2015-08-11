@@ -14,14 +14,18 @@ var {
 
 var PRealm = require('NativeModules').PRealm;
 
-PRealm.defineSchema("Person", {name: "string", age: "int", like: "array Item"});
+PRealm.defineSchema("Person", {id: "int primary", name: "string", age: "int", like: "array Item"});
 PRealm.defineSchema("Item", {name: "string"});
 
 var e1 = {name: "Beer"};
 var e2 = {name: "Game"};
-PRealm.add("Person", {name:"pompopo", age: 28, like: [e1, e2]});
+PRealm.add("Person", {id:Date.now(), name:"pompopo", age: 28, like: [e1, e2]});
 PRealm.find("Person", "age > 26", (e) => {
-  console.log(e);
+  console.log("before" + e.length);
+  PRealm.deleteObject("Person", e[0]);
+  PRealm.find("Person", "age > 26", (e) => {
+    console.log("after" + e.length);
+  });
 });
 
 var PRealmDemo = React.createClass({
