@@ -43,6 +43,7 @@ and you can use primary key
 - `PRealm.add(className, object)`
 - `PRealm.update(className, object)`
 - `PRealm.deleteAllObjects()`
+- `PRealm.deleteObject(className, object)` // The class must have a primary key.
 
 # Queries
 - `PRealm.allObjects(className, callback)`
@@ -70,4 +71,3 @@ PRealm can only update Schema version...
 - implement all RLMRealm APIs.
 - add tests
 - add license
-
