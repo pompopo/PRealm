@@ -1,9 +1,13 @@
 # PRealm
 Realm library for React Native. Currently only supports a few APIs and types.
+Planning to support android.
 
 # Install
 1. Copy and add all files in `Class` into your React Native project.
 2. Install realm-cocoa (https://github.com/realm/realm-cocoa) to your project. In my environment, Cocoa Pods caused an error.
+
+# Demo
+To run demo app, install realm-cocoa manually. Android demo does not use PRealm.
 
 # Usage
 
