@@ -5,30 +5,12 @@
 'use strict';
 
 var React = require('react-native');
-
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
 } = React;
-
-var PRealm = require('NativeModules').PRealm;
-
-PRealm.defineSchema("Person", {id: "int primary", name: "string", age: "int", like: "array Item"});
-PRealm.defineSchema("Item", {name: "string"});
-
-var e1 = {name: "Beer"};
-var e2 = {name: "Game"};
-PRealm.add("Person", {id: 10, name:"pompopo", age: 28, like: [e1, e2]});
-PRealm.find("Person", "age > 26", (e) => {
-  console.log("before " + e.length);
-  console.log("name = " + e[0].name);
-  PRealm.deleteObject("Person", e[0]);
-  PRealm.find("Person", "age > 26", (e) => {
-    console.log("after " + e.length);
-  });
-})
 
 var PRealmDemo = React.createClass({
   render: function() {
@@ -38,11 +20,10 @@ var PRealmDemo = React.createClass({
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          To get started, edit index.android.js
         </Text>
         <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+          Shake or press menu button for dev menu
         </Text>
       </View>
     );
