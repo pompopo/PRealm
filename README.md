@@ -2,6 +2,9 @@
 Realm library for React Native. Currently only supports a few APIs and types.
 Planning to support android.
 
+## :eyes: Official support will be available!!
+https://twitter.com/realm/status/661734570618920961
+
 # Install
 1. Copy and add all files in `Class` into your React Native project.
 2. Install realm-cocoa (https://github.com/realm/realm-cocoa) to your project. In my environment, Cocoa Pods caused an error.
