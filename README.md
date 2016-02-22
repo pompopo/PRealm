@@ -1,9 +1,9 @@
-# PRealm
-Realm library for React Native. Currently only supports a few APIs and types.
-Planning to support android.
+# PRealm DEPRECATED
+Realm library for React Native. This project is stopped.
 
-## :eyes: Official support will be available!!
-https://twitter.com/realm/status/661734570618920961
+
+## :eyes: Official support is HERE!
+https://realm.io/news/introducing-realm-react-native/
 
 # Install
 1. Copy and add all files in `Class` into your React Native project.
